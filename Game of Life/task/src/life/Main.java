@@ -6,7 +6,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int size = scanner.nextInt();
         int seed = scanner.nextInt();
-        Universe universe = new Universe(size, seed);
+        int evolutions = scanner.nextInt();
+        Universe universe = new Universe(size, seed, evolutions);
         universe.printState();
     }
 }
