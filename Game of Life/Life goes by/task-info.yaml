@@ -242,6 +242,116 @@ files:
         }
     }
   learner_created: false
+- name: src/life/Universe.java
+  visible: true
+  text: |
+    package life;
+
+    import java.util.Arrays;
+    import java.util.Random;
+
+    public class Universe {
+        private boolean[][] state;
+
+
+        public Universe(){
+            this(5, 0);
+        }
+
+        public Universe(int size, int seed){
+            this(size, seed, 0);
+        }
+
+        public Universe(int size, int seed, int evolutions) {
+            Random random = new Random(seed);
+            boolean[][] universe = new boolean[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    universe[i][j] = random.nextBoolean();
+                }
+            }
+            for (int i = 0; i < evolutions; i++) {
+                universe = Generation.get(universe);
+            }
+            this.state = universe;
+        }
+
+        public boolean[][] getState() {
+            return state;
+        }
+
+        public void setState(boolean[][] state) {
+            this.state = state;
+        }
+
+        public void printState() {
+            for (boolean[] line : state) {
+                StringBuilder builder = new StringBuilder();
+                for (boolean cell : line) {
+                    builder.append(cell ? "O" : " ");
+                }
+                System.out.println(builder.toString());
+            }
+        }
+    }
+  learner_created: true
+- name: src/life/Generation.java
+  visible: true
+  text: |
+    package life;
+
+    import java.util.Arrays;
+
+    public class Generation {
+        final static int MIN_NEIGHBOURS = 2;
+        final static int MAX_NEIGHBOURS = 3;
+        final static int REBORN_NEIGHBOURS = 3;
+
+        static boolean[][] get(boolean[][] fromParent) {
+            boolean[][] parent = fromParent;
+            int[][] neighbours = getNeighbours(parent);
+            boolean[][] child = new boolean[parent.length][parent.length];
+            for (int i = 0; i < neighbours.length; i++) {
+                for (int j = 0; j < neighbours[i].length; j++) {
+                    //If current cell is alive
+                    if (parent[i][j]){
+                        //An alive cell survives if has between min and max alive neighbors;
+                        child[i][j] = neighbours[i][j] >= MIN_NEIGHBOURS && neighbours[i][j] <= MAX_NEIGHBOURS;
+                    } else {
+                        //A dead cell is reborn if it has exactly the specified number of alive neighbors
+                        child[i][j] = neighbours[i][j] == REBORN_NEIGHBOURS;
+                    }
+
+                }
+            }
+            return child;
+        }
+
+        static int[][] getNeighbours (boolean[][] parent){
+
+            int[][] result = new int[parent.length][parent.length];
+            for (int i = 0; i < parent.length; i++) {
+                for (int j = 0; j < parent[i].length; j++) {
+                    int numberOfNeighbours = 0;
+                    int l = parent.length;
+                    numberOfNeighbours += parent[(i-1+l)%l][(j-1+l)%l] ? 1 : 0;
+                    numberOfNeighbours += parent[(i-1+l)%l][j] ? 1 : 0;
+                    numberOfNeighbours += parent[(i-1+l)%l][(j+1)%l] ? 1 : 0;
+                    numberOfNeighbours += parent[i][(j-1+l)%l] ? 1 : 0;
+                    numberOfNeighbours += parent[i][(j+1)%l] ? 1 : 0;
+                    numberOfNeighbours += parent[(i+1)%l][(j-1+l)%l] ? 1 : 0;
+                    numberOfNeighbours += parent[(i+1)%l][j] ? 1 : 0;
+                    numberOfNeighbours += parent[(i+1)%l][(j+1)%l] ? 1 : 0;
+                    result[i][j] = numberOfNeighbours;
+                }
+            }
+            return result;
+        }
+    }
+  learner_created: true
+- name: src/life/Generation.class
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/54/stages/296/implement
-status: Unchecked
+status: Solved
 record: -1
