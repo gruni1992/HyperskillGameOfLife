@@ -349,9 +349,6 @@ files:
         }
     }
   learner_created: true
-- name: src/life/Generation.class
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/projects/54/stages/296/implement
 status: Solved
-record: -1
+record: 3

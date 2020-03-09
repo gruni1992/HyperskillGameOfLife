@@ -4,7 +4,7 @@
 
 <p><img alt="" height="236" src="https://ucarecdn.com/f200bfdb-ba29-4ac4-b160-1f7010fdef80/" width="237"></p>
 
-<p>As you can notice, each cell has eight neighbors. We consider the universe to be periodic: border cells also have eight neighbors. For example:<br>
+<p>As you can notice, each cell has eight neighbors. We consider the gameOfLifeModel to be periodic: border cells also have eight neighbors. For example:<br>
 	<br>
 	If cell is right-border, its right (east) neighbor is leftmost cell in the same row.<br>
 	If cell is bottom-border, its bottom (south) neighbor is topmost cell in the same column.<br>
@@ -26,13 +26,13 @@
 
 <p>The program should apply these rules to each cell in order to compute the next generation.</p>
 
-<p>At this stage, you should make several consecutive generations. For this, you have to store the state of the universe in memory.</p>
+<p>At this stage, you should make several consecutive generations. For this, you have to store the state of the gameOfLifeModel in memory.</p>
 
 <p>Use 2-dimensional arrays for this task. You need two arrays: one for the current generation and one for the next. Add these arrays to the program and implement the algorithm of getting the next generation.<br>
 	<br>
-	NOTE: it will be better to encapsulate the state of the universe and the generation algorithm in separate classes. You will understand why soon.</p>
+	NOTE: it will be better to encapsulate the state of the gameOfLifeModel and the generation algorithm in separate classes. You will understand why soon.</p>
 
-<p>The input data is three numbers in one line. The first is N (N&gt;0), the size of the universe; the second is S, a long, that you should use as seed for your Random object; the third is M (M≥0), the number of generations your program should create.<br>
+<p>The input data is three numbers in one line. The first is N (N&gt;0), the size of the gameOfLifeModel; the second is S, a long, that you should use as seed for your Random object; the third is M (M≥0), the number of generations your program should create.<br>
 	<br>
 	Output data: a square matrix NxN: there must be N lines with N characters in each line. If there is an alive cell, place the letter ‘O’, otherwise, whitespace. The matrix should describe the generation after M steps from the beginning. So if M==8, you should find generation #9 (first is #1).</p>
 

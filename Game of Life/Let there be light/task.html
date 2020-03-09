@@ -1,6 +1,6 @@
 <h2>Description</h2>
 
-<p>This not a game in the usual meaning of a game. The human player’s input just creates the initial state of the “universe.” After that, the game is completely deterministic, and one just observes the evolution of life forms, migration, and even socialization of primitive organisms.</p>
+<p>This not a game in the usual meaning of a game. The human player’s input just creates the initial state of the “gameOfLifeModel.” After that, the game is completely deterministic, and one just observes the evolution of life forms, migration, and even socialization of primitive organisms.</p>
 
 <p>The <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" rel="nofollow noopener noreferrer">Game of Life</a> was described by John Conway in 1970. It came from a mathematical problem, and since 1970 it has attracted the interest of scientists in various fields: physics, biology, economics, and so on.</p>
 
@@ -10,10 +10,10 @@
 
 <p>By completing this project, you will make an application with multithreading and a graphical user interface. Also, the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" rel="nofollow noopener noreferrer">MVC</a> pattern is very suitable for this application.</p>
 
-<p>In the first stage, you need to create a “map” of the universe in its first moment of existence ― the first generation.</p>
+<p>In the first stage, you need to create a “map” of the gameOfLifeModel in its first moment of existence ― the first generation.</p>
 
-<p>The universe in this game looks like a grid in which each cell has one of two possible states: populated (alive) or not populated (dead).<br>
- Before the game starts, the player should define the state of each cell. To make the first state of the universe, we will use randomness.<br>
+<p>The gameOfLifeModel in this game looks like a grid in which each cell has one of two possible states: populated (alive) or not populated (dead).<br>
+ Before the game starts, the player should define the state of each cell. To make the first state of the gameOfLifeModel, we will use randomness.<br>
  <br>
  To move from the first cell to the last, use the nextBoolean() method of java.util.Random to define its state. Populate the cell as alive if nextBoolean returns true, and dead if false.</p>
 
@@ -21,7 +21,7 @@
 
 <p>The first program should output a square matrix NxN: there must be N lines with N characters in each line. If there is an alive cell, place the letter ‘O’, otherwise, whitespace.<br>
  <br>
- Input data is two numbers in one line. First is N (N&gt;0): the size of the universe. The second is S: a number that you should use as the seed for your Random object. Notice, that you should set the seed only once.</p>
+ Input data is two numbers in one line. First is N (N&gt;0): the size of the gameOfLifeModel. The second is S: a number that you should use as the seed for your Random object. Notice, that you should set the seed only once.</p>
 
 <h2>Examples</h2>
 
